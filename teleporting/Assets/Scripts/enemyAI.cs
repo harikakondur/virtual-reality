@@ -13,7 +13,7 @@ public class enemyAI : MonoBehaviour
     public float shootPower = 1000f;
 
 
-    private float fireRate = 4f;
+    private float fireRate = 2f;
     private float nextFire = 0f;
 
   
