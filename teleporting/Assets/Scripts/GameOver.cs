@@ -12,10 +12,10 @@ public class GameOver : MonoBehaviour
 	      SceneManager.LoadScene(currentSceneName);
 	  }
 
-	//   if (other.gameObject.tag == "enemyBullet") {
-	//       string currentSceneName = SceneManager.GetActiveScene().name;
-	//       SceneManager.LoadScene(currentSceneName);
-	//   }
+	  if (other.gameObject.tag == "enemyBullet") {
+	      string currentSceneName = SceneManager.GetActiveScene().name;
+	      SceneManager.LoadScene(currentSceneName);
+	  }
 
 	  
 	}

@@ -6,8 +6,8 @@ public class enemyAI : MonoBehaviour
 {
 
     [SerializeField]
-    private float move_speed = 50f;
-    private GameObject playerTarget;
+    private float move_speed = 30f;
+    public GameObject playerTarget;
 
     public GameObject BulletTemplate;
     public float shootPower = 1000f;
@@ -23,7 +23,6 @@ public class enemyAI : MonoBehaviour
 
     void Update()
     {
-        //only move forward when we have a player target
 
         if (playerTarget!= null){
             //orients it towards the player
@@ -32,12 +31,18 @@ public class enemyAI : MonoBehaviour
 
             if (Time.time > nextFire)
             {
+                Debug.Log("Enemy is firing");
                 nextFire = Time.time + fireRate;
-
                 GameObject newBullet = Instantiate(BulletTemplate, transform.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * shootPower);
             }
         
         }   
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "PlayerBullet"){
+        Destroy(this.gameObject);
+    }
     }
 }
